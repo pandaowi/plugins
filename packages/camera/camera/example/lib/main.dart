@@ -129,7 +129,7 @@ class _CameraExampleHomeState extends State<CameraExampleHome>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Camera example'),
+        title: const Text('Camera example fix android 12'),
       ),
       body: Column(
         children: <Widget>[
