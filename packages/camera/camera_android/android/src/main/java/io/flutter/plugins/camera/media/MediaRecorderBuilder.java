@@ -67,41 +67,126 @@ public class MediaRecorderBuilder {
     return this;
   }
 
+  // public MediaRecorder build() throws IOException, NullPointerException,
+  // IndexOutOfBoundsException {
+  // MediaRecorder mediaRecorder = recorderFactory.makeMediaRecorder();
+
+  // // There's a fixed order that mediaRecorder expects. Only change these
+  // functions accordingly.
+  // // You can find the specifics here:
+  // https://developer.android.com/reference/android/media/MediaRecorder.
+  // if (enableAudio) mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+  // mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
+
+  // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && encoderProfiles !=
+  // null) {
+  // EncoderProfiles.VideoProfile videoProfile =
+  // encoderProfiles.getVideoProfiles().get(0);
+  // EncoderProfiles.AudioProfile audioProfile =
+  // encoderProfiles.getAudioProfiles().get(0);
+
+  // mediaRecorder.setOutputFormat(encoderProfiles.getRecommendedFileFormat());
+  // if (enableAudio) {
+  // mediaRecorder.setAudioEncoder(audioProfile.getCodec());
+  // mediaRecorder.setAudioEncodingBitRate(audioProfile.getBitrate());
+  // mediaRecorder.setAudioSamplingRate(audioProfile.getSampleRate());
+  // }
+  // mediaRecorder.setVideoEncoder(videoProfile.getCodec());
+  // mediaRecorder.setVideoEncodingBitRate(videoProfile.getBitrate());
+  // mediaRecorder.setVideoFrameRate(videoProfile.getFrameRate());
+  // mediaRecorder.setVideoSize(videoProfile.getWidth(),
+  // videoProfile.getHeight());
+  // mediaRecorder.setVideoSize(videoProfile.getWidth(),
+  // videoProfile.getHeight());
+  // } else {
+  // mediaRecorder.setOutputFormat(camcorderProfile.fileFormat);
+  // if (enableAudio) {
+  // mediaRecorder.setAudioEncoder(camcorderProfile.audioCodec);
+  // mediaRecorder.setAudioEncodingBitRate(camcorderProfile.audioBitRate);
+  // mediaRecorder.setAudioSamplingRate(camcorderProfile.audioSampleRate);
+  // }
+  // mediaRecorder.setVideoEncoder(camcorderProfile.videoCodec);
+  // mediaRecorder.setVideoEncodingBitRate(camcorderProfile.videoBitRate);
+  // mediaRecorder.setVideoFrameRate(camcorderProfile.videoFrameRate);
+  // mediaRecorder.setVideoSize(
+  // camcorderProfile.videoFrameWidth, camcorderProfile.videoFrameHeight);
+  // }
+
+  // mediaRecorder.setOutputFile(outputFilePath);
+  // mediaRecorder.setOrientationHint(this.mediaOrientation);
+
+  // mediaRecorder.prepare();
+
+  // return mediaRecorder;
+  // }
+
   public MediaRecorder build() throws IOException, NullPointerException, IndexOutOfBoundsException {
     MediaRecorder mediaRecorder = recorderFactory.makeMediaRecorder();
 
-    // There's a fixed order that mediaRecorder expects. Only change these functions accordingly.
-    // You can find the specifics here: https://developer.android.com/reference/android/media/MediaRecorder.
-    if (enableAudio) mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+    // There's a fixed order that mediaRecorder expects. Only change these functions
+    // accordingly.
+    // You can find the specifics here:
+    // https://developer.android.com/reference/android/media/MediaRecorder.
+    if (enableAudio)
+      mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
     mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && encoderProfiles != null) {
-      EncoderProfiles.VideoProfile videoProfile = encoderProfiles.getVideoProfiles().get(0);
-      EncoderProfiles.AudioProfile audioProfile = encoderProfiles.getAudioProfiles().get(0);
+    if (Build.VERSION.SDK_INT >= 31) {
+      // EncoderProfiles.VideoProfile videoProfile =
+      // encoderProfiles.getVideoProfiles().get(0);
+      // EncoderProfiles.AudioProfile audioProfile =
+      // encoderProfiles.getAudioProfiles().get(0);
+      String vvvww = " WIN == ";
+      // vvvww = vvvww + " getRecommendedFileFormat "+
+      // encoderProfiles.getRecommendedFileFormat() ;
+      // if (enableAudio) {
+      // vvvww = vvvww + " getCodec "+ audioProfile.getCodec();
+      // vvvww = vvvww + " getBitrate "+ audioProfile.getBitrate();
+      // vvvww = vvvww + " getSampleRate "+ audioProfile.getSampleRate();
+      // }
+      // vvvww = vvvww + " videoProfile.getCodec "+ videoProfile.getCodec();
+      // vvvww = vvvww + " videoProfile.getBitrate "+ videoProfile.getBitrate();
+      // vvvww = vvvww + " videoProfile.getFrameRate "+ videoProfile.getFrameRate();
+      //
+      // vvvww = vvvww + " videoProfile.getWidth "+ videoProfile.getWidth();
+      // vvvww = vvvww + " videoProfile.getHeight "+ videoProfile.getHeight();
 
-      mediaRecorder.setOutputFormat(encoderProfiles.getRecommendedFileFormat());
-      if (enableAudio) {
-        mediaRecorder.setAudioEncoder(audioProfile.getCodec());
-        mediaRecorder.setAudioEncodingBitRate(audioProfile.getBitrate());
-        mediaRecorder.setAudioSamplingRate(audioProfile.getSampleRate());
-      }
-      mediaRecorder.setVideoEncoder(videoProfile.getCodec());
-      mediaRecorder.setVideoEncodingBitRate(videoProfile.getBitrate());
-      mediaRecorder.setVideoFrameRate(videoProfile.getFrameRate());
-      mediaRecorder.setVideoSize(videoProfile.getWidth(), videoProfile.getHeight());
-      mediaRecorder.setVideoSize(videoProfile.getWidth(), videoProfile.getHeight());
+      android.util.Log.e("EncoderProfilesWWWW", vvvww);
+
+      // MediaRecorder.OutputFormat.DEFAULT //
+      // encoderProfiles.getRecommendedFileFormat()
+      mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.DEFAULT);
+      // if (enableAudio) {
+      // // 0 - 7 // 2
+      // mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
+      // //audioProfile.getCodec());
+      //// mediaRecorder.setAudioEncodingBitRate(audioProfile.getBitrate());
+      //// mediaRecorder.setAudioSamplingRate(audioProfile.getSampleRate());
+      // }
+      // 0 - 5 // 3
+      mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.DEFAULT); // mediaRecorder.setVideoEncoder(videoProfile.getCodec());
+      // ??
+      // mediaRecorder.setVideoEncodingBitRate(videoProfile.getBitrate());
+      // 0 , 90, ...
+      // mediaRecorder.setVideoFrameRate(videoProfile.getFrameRate());
+      // me size
+      mediaRecorder.setVideoSize(600, 600); // videoProfile.getWidth(), videoProfile.getHeight());
+      mediaRecorder.setVideoSize(600, 600);
     } else {
-      mediaRecorder.setOutputFormat(camcorderProfile.fileFormat);
-      if (enableAudio) {
-        mediaRecorder.setAudioEncoder(camcorderProfile.audioCodec);
-        mediaRecorder.setAudioEncodingBitRate(camcorderProfile.audioBitRate);
-        mediaRecorder.setAudioSamplingRate(camcorderProfile.audioSampleRate);
-      }
-      mediaRecorder.setVideoEncoder(camcorderProfile.videoCodec);
-      mediaRecorder.setVideoEncodingBitRate(camcorderProfile.videoBitRate);
-      mediaRecorder.setVideoFrameRate(camcorderProfile.videoFrameRate);
-      mediaRecorder.setVideoSize(
-          camcorderProfile.videoFrameWidth, camcorderProfile.videoFrameHeight);
+      /// MediaRecorder.OutputFormat.RAW_AMR
+      // mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+      /// //camcorderProfile.fileFormat);
+      // if (enableAudio) {
+      // mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+      /// //camcorderProfile.audioCodec);
+      // mediaRecorder.setAudioEncodingBitRate(16); //camcorderProfile.audioBitRate
+      // mediaRecorder.setAudioSamplingRate(camcorderProfile.audioSampleRate);
+      // }
+      // mediaRecorder.setVideoEncoder(camcorderProfile.videoCodec);
+      // mediaRecorder.setVideoEncodingBitRate(camcorderProfile.videoBitRate);
+      // mediaRecorder.setVideoFrameRate(camcorderProfile.videoFrameRate);
+      // mediaRecorder.setVideoSize(
+      // camcorderProfile.videoFrameWidth, camcorderProfile.videoFrameHeight);
     }
 
     mediaRecorder.setOutputFile(outputFilePath);
